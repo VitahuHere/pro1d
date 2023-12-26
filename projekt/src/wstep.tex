@@ -1,15 +1,10 @@
-\begin{abstract}
-    Głównym zadaniem tego projektu jest stworzenie modelu do klasyfikacji spośród 26-ciu wielkich liter z alfabetu angielskiego.
-    W ramach realizacji tego projektu użyte zostały mechanizmy uczenia maszynowego, przetwarzania danych i oceny klasyfikatora.
-\end{abstract}
-
 \section{Wstęp}\label{sec:wstep}
 
 \subsection{Zbiór danych}\label{subsec:zbiordanych}
 Dane pochodzą z bezpłatnego repozytorium \cite{misc_letter_recognition_59} Donald Bren school of Information and Computer Sciences (UCI ICS) z grudnia 1990 roku.
 Badacze stworzyli ten zestaw z czarno-białych, prostokątnych obrazków liter zawierających jedną z 26 wielkich liter alfabetu angielskiego.
 Bazowano na 20 różnych czcionkach, gdzie każdą literę z tych 20 czcionek poddano losowej dystorsji otrzymując 20 tysięcy 
-unikatowych\footnote{W teorii. Rzeczywista liczba unikatowych wartości będzie przedstawiona później} rekordów.
+unikatowych\footnote{Rzeczywista liczba unikatowych wartości będzie przedstawiona później} rekordów.
 Każdy zawiera 17 atrybutów. Pierwszy, zawiera informację jaka to litera, czyli klasa/kategoria, a pozostałe 16 zawierają informację o pikselach obrazu przedstawioną jako wartości całkowite od 0 do 15 z obu stron włącznie.
 Żadna z kolumn nie ma brakującej wartości. Spośród informacji opisujących daną literę można wyróżnić pionową i poziomą pozycję ramki, szerokość i wysokość obrazka, łączną liczbę pikseli i różne operacje statystyczne
 takie jak mediana, wariancja i korelacja danych \textit{x} oraz \textit{y}.
@@ -23,4 +18,9 @@ Do rozwiązania tego problemu można wykorzystać wiele algorytmów uczenia masz
 \end{itemize}
 W tym badaniu zaimplementowane i przetestowane zostały k - NN oraz sieć neuronowa.
 
-\subsection{Rezultaty}
+\subsection{Miary oceny}\label{subsec:miaryoceny}
+Głównym kryterium oceny klasyfikatora jest jego skuteczność, czyli stosunek poprawnie sklasyfikowanych rekordów do wszystkich rekordów.
+Porównane zostały też czasy uczenia i predykcji, a także wpływ różnych parametrów na skuteczność klasyfikatora.
+
+\subsection{Użyte narzędzia i biblioteki}\label{subsec:narzedziaibiblioteki}
+Jest wiele technologii umożliwiających implementację algorytmów uczenia maszynowego, jednak w tym badaniu wykorzystano język Python w wersji 3.11.6 oraz bibliotekę scikit-learn w wersji 1.3.2.
