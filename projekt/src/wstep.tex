@@ -1,7 +1,11 @@
 \section{Wstęp}\label{sec:wstep}
 
+\subsection{Cel}\label{subsec:cel}
+Celem tego badania jest porównanie klasyfikatorów k - NN i sieci neuronowej w zadaniu klasyfikacji liter alfabetu angielskiego.
+W tym celu należy przeprowadzić analizę zbioru danych, przygotować go do uczenia maszynowego, a następnie przetestować oba klasyfikatory i porównać ich wyniki.
+
 \subsection{Zbiór danych}\label{subsec:zbiordanych}
-Dane pochodzą z bezpłatnego repozytorium \cite{misc_letter_recognition_59} 
+Dane pochodzą z bezpłatnego repozytorium \cite{misc_letter_recognition_59}
 Donald Bren school of Information and Computer Sciences (UCI ICS) z grudnia 1990 roku.
 Badacze stworzyli ten zestaw z czarno-białych, prostokątnych obrazków liter zawierających jedną z 26 wielkich liter alfabetu angielskiego.
 Bazowano na 20 różnych czcionkach, gdzie każdą literę z tych 20 czcionek poddano losowej dystorsji otrzymując 20 tysięcy 
@@ -22,14 +26,21 @@ Do rozwiązania tego problemu można wykorzystać wiele algorytmów uczenia masz
 W tym badaniu zaimplementowane i przetestowane zostały k - NN oraz sieć neuronowa.
 
 \subsection{Użyte narzędzia i biblioteki}\label{subsec:narzedziaibiblioteki}
-Istnieje wiele technologii umożliwiających implementację algorytmów uczenia maszynowego. 
+Istnieje wiele technologii umożliwiających implementację algorytmów uczenia maszynowego.
 Jeśli implementację wszystkich elementów i algorytmów wykonuje się samemu, to język programowania ma duże znaczenie.
-W przypadku bardziej zaawansowanych modeli, takich jak sieci neuronowe z większą liczbą ukrytych warstw, sieci konwolucyjne, bądź modele regresyjne, należy użyć języków programowania o wysokiej wydajności, takich jak C++ lub Java. W tym badaniu użyto języka Python, który jest językiem wysokiego poziomu. Oznacz to, że pomiędzy kodem napisanym w języku Python, a kodem maszynowym, jest więcej warstw abstrakcji, co powoduje, że jest on mniej wydajny. Biblioteki takie jak Tensorflow, bądź PyTorch są napisane w języku C++, a interfejsy do nich są napisane w języku Python. Dzięki temu można w łatwy sposób korzystać z zaawansowanych modeli, wykorzystując wydajność niskopoziomowego języka oraz prostotę języka wysokopoziomowego.
+W przypadku bardziej zaawansowanych modeli, takich jak sieci neuronowe z większą liczbą ukrytych warstw, sieci konwolucyjne, bądź modele regresyjne,
+należy użyć języków programowania o wysokiej wydajności, takich jak C++ lub Java. W tym badaniu użyto języka Python, który jest językiem wysokiego poziomu.
+Oznacza to, że pomiędzy kodem napisanym w języku Python, a kodem maszynowym, jest więcej warstw abstrakcji, co powoduje, że jest on mniej wydajny.
+Biblioteki takie jak Tensorflow, bądź PyTorch są napisane w języku C++, a interfejsy do nich są napisane w języku Python. Dzięki temu można w łatwy sposób korzystać z zaawansowanych modeli,
+wykorzystując wydajność niskopoziomowego języka oraz prostotę języka wysokopoziomowego.
 
-Jedną z najpopularniejszych i najprostszych bibliotek do uczenia maszynowego w języku Python jest scikit-learn\cite{scikit-learn} . Nie jest ona najszybsza, ani nie jest najbardziej rozbudowana, ale jest łatwa w użyciu i posiada wiele przydatnych funkcji.
-Zawiera między innymi algorytmy wymienione w sekcji \ref{subsec:klasyfikatory}. W tym badaniu wykorzystane zostały klasy KNeighborsClassifier i MLPClassifier, które implementują odpowiednio k - NN i sieć neuronową. 
+Jedną z najpopularniejszych i najprostszych bibliotek do uczenia maszynowego w języku Python jest scikit-learn\cite{scikit-learn} . Nie jest ona najszybsza, ani nie jest najbardziej rozbudowana,
+ale jest łatwa w użyciu i posiada wiele przydatnych funkcji. Zawiera między innymi algorytmy wymienione w sekcji \ref{subsec:klasyfikatory}. Ze względu na relatywnie niewielki rozmiar zbioru danych,
+wydajność nie jest najważniejszym kryterium. W tym badaniu wykorzystane zostały klasy KNeighborsClassifier i MLPClassifier, które implementują odpowiednio k - NN i sieć neuronową.
 
 \subsection{Miary oceny}\label{subsec:miaryoceny}
-Głównym kryterium oceny klasyfikatora jest jego trafność, 
-czyli stosunek poprawnie sklasyfikowanych rekordów do wszystkich rekordów.
-Porównane zostały też f-miary, czasy uczenia i predykcji, a także wpływ różnych parametrów na skuteczność klasyfikatora.
+Głównym kryterium oceny klasyfikatora jest jego trafność, czyli stosunek poprawnie sklasyfikowanych rekordów do wszystkich rekordów.
+Nie jest to jednak jedyny i najlepszy sposób oceny klasyfikatora. W przypadku niezbalansowanych zbiorów danych, gdzie jedna klasa występuje znacznie częściej niż pozostałe,
+należy wykorzystać metody biorące ten fakt pod uwagę. Jedną z takich metod to F-miara, czyli stosunek poprawnie sklasyfikowanych rekordów danej klasy do wszystkich rekordów sklasyfikowanych
+jako ta klasa oraz stosunku poprawnie sklasyfikowanych rekordów danej klasy do wszystkich rekordów tej klasy. Wartość 1 oznacza idealną trafność klasyfikacji - nawet tej niezbalansowanej, 
+analogicznie 0 oznacza zupełny brak trafności. W tym badaniu skupiono się na trafności klasyfikatorów, natomiast zmierzono również ich czasy uczenia i predykcji oraz F-miarę.
