@@ -1,2 +1,29 @@
 \section{Przetwarzanie danych}\label{sec:przetwarzanie_danych}
-\subsection{Czyszczenie danych}\label{subsec:czyszczenie_danych}
+\subsection{Zbiór początkowy}\label{subsec:filtrowanie_danych}
+Biblioteka \textit{pandas}\cite{mckinney-proc-scipy-2010} została użyta do wczytania danych z pliku \textit{csv} do obiektu \textit{DataFrame}.
+Umożliwia ona łatwe i szybkie przetwarzanie danych, a także wygodne operacje na nich. Plik z danymi nie zawiera nagłówków, więc zostały one dodane ręcznie.
+\begin{minted}[linenos,autogobble,frame=lines,framesep=2mm]{python}
+import pandas as pd
+
+DATA_PATH = "letter-recognition.data"
+HEADERS = [
+    "lettr",
+    "x-box",
+    "y-box",
+    "width",
+    "high",
+    "onpix",
+    "x-bar",
+    "y-bar",
+    "x2bar",
+    "y2bar",
+    "xybar",
+    "x2ybr",
+    "xy2br",
+    "x-ege",
+    "xegvy",
+    "y-ege",
+    "yegvx",
+]
+data = pd.read_csv(DATA_PATH, header=None, names=HEADERS)
+\end{minted}
