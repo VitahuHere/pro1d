@@ -4,25 +4,26 @@
 Sieci neuronowe są mocno specyficznym modelem uczenia maszynowego, ponieważ nie ma jednoznacznej metody na dobór hiperparametrów.
 Liczba neuronów, liczba warstw, funkcje aktywacji, funkcje straty, funkcje optymalizujące, współczynnik uczenia, liczba epok - wszystkie te parametry mają wpływ na wynik klasyfikacji.
 Nie ma jednej metody na dobór hiperparametrów, więc trzeba przetestować różne kombinacje i wybrać tę, która daje najlepsze wyniki.
-Zanim zdecydowano się na ostateczną architekturę sieci neuronowej, przetestowano różne kombinacje liczby neuronów w warstwach ukrytych.
+Zanim zdecydowano się na ostateczną architekturę sieci neuronowej, przetestowano różne kombinacje liczby neuronów w warstwach ukrytych:
 \begin{itemize}
     \item 10, 10
     \item 16, 32
     \item 32, 64
     \item 64, 128
     \item 128, 256
-    \item 256, 512
+    \item 256, 512,
 \end{itemize}
-Jak i również odwrotność kolejności tych kombinacji. Mniejsze liczby neuronów, czyli poniżej 32 zatrzymywały trenowanie po około 20 epokach, ponieważ nie było poprawy wyników, które nie były wysokie i tak.
+jak i również odwrotność kolejności tych kombinacji. Mniejsze liczby neuronów, czyli poniżej 32 zatrzymywały trenowanie po około 20 epokach, ponieważ nie było poprawy wyników, 
+które i tak nie były wysokie.
 Najlepsze wyniki uzyskano dla 128 i 256 neuronów w warstwach ukrytych.
 \subsubsection{Wpływ liczby epok na wynik klasyfikacji}\label{subsubsec:liczba_epok}
-Liczba epok to hiperparametr, który określa ile razy sieć neuronowa przejdzie przez cały zbiór danych. Wartość tego parametru bezpośrednio wpływa na jakość modelu.
+Liczba epok to hiperparametr, który określa, ile razy sieć neuronowa przejdzie przez cały zbiór danych. Wartość tego parametru bezpośrednio wpływa na jakość modelu.
 Zbyt mała liczba epok może spowodować niedouczenie, a zbyt duża - przeuczenie. Należy monitorować wyniki klasyfikacji w trakcie trenowania i zatrzymać je, gdy nie ma poprawy, bądź ta poprawa jest zbyt mała.
 Przetestowaniu poddano następujące liczby epok: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
 Optymalną wartością okazała się być 40.
 \subsection{K - NN}\label{subsec:dobor_hiperparametrow_knn}
 \subsubsection{Wpływ liczby sąsiadów}\label{subsubsec:liczba_sasiadow}
 K - NN jest algorytmem, który nie wymaga uczenia, więc jedyny hiperparametr jaki można dobierać to liczba sąsiadów.
-Do tego celu posłużono się klasą \mintinline{python}{GridSearchCV} z biblioteki \mintinline{python}{scikit-learn}.
-Pod uwagę wzięto następujące liczby sąsiadów: 3, 5, 7, 9, 11, 13, 15. Klasa \mintinline{python}{GridSearchCV}
+Do tego celu posłużono się klasą GridSearchCV z biblioteki scikit-learn.
+Pod uwagę wzięto następujące liczby sąsiadów: 3, 5, 7, 9, 11, 13, 15. Klasa GridSearchCV
 przetestowała wszystkie kombinacje i wybrała tę, która dawała najlepsze wyniki - 3.

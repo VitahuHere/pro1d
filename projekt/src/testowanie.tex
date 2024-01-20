@@ -9,15 +9,17 @@ Wyniki klasyfikacji na zbiorze testowym są miarą tego, jak dobrze model radzi 
     \resizebox{0.6\textwidth}{!}{%
         \begin{tabular}{@{}|l|l|l|l|@{}}
             \toprule
-                       & Niezbalansowane & Over sampling & Under sampling \\ \midrule
-            dokładność & 91\%         & 92\%       & 90\%        \\ \midrule
-            F-miara    & 0,91          & 0,92        & 0,90         \\ \bottomrule
+                       & Niezbalansowane & Oversampling & Undersampling \\ \midrule
+            dokładność & 91\%            & 92\%          & 90\%           \\ \midrule
+            F-miara    & 0,91            & 0,92          & 0,90           \\ \bottomrule
         \end{tabular}%
     }
     \label{tab:acc_f_measure_nn}
 \end{table}
-Powyższa tabela \ref{tab:acc_f_measure_nn} przedstawia wyniki dokładności i F-miary dla zbioru testowego. Widać wyraźnie, że wyniki są bardzo zbliżone do siebie różniąc się o maksymalnie 2 punkty procentowe.
-F-miara również jest praktycznie taka sama dla wszystkich trzech zbiorów, a co najważniejsze, ich wartość oscyluje w okolicach 90\%. Świadczy to o tym, że model radzi sobie dobrze z nowymi danymi oraz
+Powyższa tabela \ref{tab:acc_f_measure_nn} przedstawia wyniki dokładności i F-miary dla zbioru testowego. Widać wyraźnie, 
+że wyniki są bardzo zbliżone do siebie różniąc się o maksymalnie 2 punkty procentowe.
+F-miara również jest praktycznie taka sama dla wszystkich trzech zbiorów, a co najważniejsze, ich wartość oscyluje w okolicach 90\%. 
+Świadczy to o tym, że model radzi sobie dobrze z nowymi danymi oraz
 nie ma problemu z rozpoznawaniem klas mniejszościowych.
 \subsection{K - NN}\label{subsec:testowanie_knn}
 \begin{table}[H]
@@ -26,15 +28,16 @@ nie ma problemu z rozpoznawaniem klas mniejszościowych.
     \resizebox{0.6\textwidth}{!}{%
         \begin{tabular}{@{}|l|l|l|l|@{}}
             \toprule
-                       & Niezbalansowane & Over sampling & Under sampling \\ \midrule
+                       & Niezbalansowane & Oversampling & Undersampling \\ \midrule
             dokładność & 94,41\%         & 95,29\%       & 93,38\%        \\ \midrule
             F-miara    & 0,9443          & 0,9508        & 0,9339         \\ \bottomrule
         \end{tabular}%
     }
     \label{tab:acc_f_measure_knn}
 \end{table}
-W przypadku algorytmu k - NN, wyniki są jeszcze lepsze niż w przypadku sieci neuronowej. Dokładność i F-miara są wyższe o około 3 punkty procentowe. Zaznaczając przy tym zerowy czas uczenia.
-Można też przedstawić wyniki klasyfikacji w postaci macierzy pomyłek. Macierz pomyłek przedstawia liczbę poprawnie i niepoprawnie zaklasyfikowanych obrazów dla każdej klasy.
+W przypadku algorytmu k - NN, wyniki są jeszcze lepsze niż w przypadku sieci neuronowej. Dokładność i F-miara są wyższe o około 3 punkty procentowe,
+zaznaczając przy tym zerowy czas uczenia. Można też przedstawić wyniki klasyfikacji w postaci macierzy pomyłek. 
+Macierz pomyłek przedstawia liczbę poprawnie i niepoprawnie zaklasyfikowanych obrazów dla każdej klasy.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{img/confusion_not_balanced.png}
@@ -45,13 +48,13 @@ Można też przedstawić wyniki klasyfikacji w postaci macierzy pomyłek. Macier
     \begin{subfigure}{0.5\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/confusion_under.png}
-        \caption{Under sampled zbiór testowy}
+        \caption{Undersampled zbiór testowy}
         \label{fig:confusion_matrix_knn_under}
     \end{subfigure}
     \begin{subfigure}{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/confusion_over.png}
-        \caption{Over sampled zbiór testowy}
+        \caption{Oversampled zbiór testowy}
         \label{fig:confusion_matrix_knn_over}
     \end{subfigure}
 \end{figure}

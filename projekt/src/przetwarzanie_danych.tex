@@ -1,6 +1,6 @@
 \section{Przetwarzanie danych}\label{sec:przetwarzanie_danych}
 \subsection{Zbiór początkowy}\label{subsec:zbior_poczatkowy}
-Biblioteka \textit{pandas}\cite{mckinney-proc-scipy-2010} została użyta do wczytania danych z pliku \textit{csv} do obiektu \textit{DataFrame}.
+Biblioteka \textit{pandas} \cite{mckinney-proc-scipy-2010} została użyta do wczytania danych z pliku \textit{csv} do obiektu \textit{DataFrame}.
 Umożliwia ona łatwe i szybkie przetwarzanie danych, a także wygodne operacje na nich. Plik z danymi nie zawiera nagłówków, więc zostały one dodane ręcznie
 poprzez ustawienie stałej \textit{HEADERS} jako listę nazw kolumn, w kolejności odpowiadającej kolejności kolumn w pliku z danymi.
 Pierwsza kolumna \textit{lettr} jest etykietą klasy, a pozostałe to cechy.
@@ -45,7 +45,7 @@ korzystając z wbudowanej metody \textit{train\_test\_split} biblioteki scikit-l
 \begin{itemize}
     \item 15620 przykładów treningowych i 3906 testowych po oversamplingu
     \item 10878 przykładów treningowych i 2720 testowych po undersamplingu
-    \item 13805 przykładów treningowych i 3452 testowych zbioru bez balansowania
+    \item 13805 przykładów treningowych i 3452 testowych zbioru bez balansowania.
 \end{itemize}
 Kolejnym krokiem było przekształcenie danych do postaci znormalizowanej, czyli takiej, w której cecha jest w granicach od 0 do 1.
 W tym celu posłużono się metodą \textit{normalize} biblioteki scikit-learn.

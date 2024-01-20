@@ -14,7 +14,7 @@ W tym badaniu ustalono optymalną architekturę sieci neuronowej na 4 warstwy:
     \item warstwa wejściowa - 16 neuronów, po jednym na każdą cechę
     \item pierwsza warstwa ukryta - 128 neuronów
     \item druga warstwa ukryta - 256 neuronów
-    \item warstwa wyjściowa - 26 neuronów, po jednym na każdą literę alfabetu angielskiego
+    \item warstwa wyjściowa - 26 neuronów, po jednym na każdą literę alfabetu angielskiego.
 \end{itemize}
 \subsubsection{Funkcja aktywacji}\label{subsubsec:funkcja_aktywacji}
 Funkcja aktywacji jest funkcją, która przekształca sumę ważoną wejść neuronu na jego wyjście.
@@ -38,21 +38,21 @@ W przypadku użycia jako funkcja aktywacji w warstwie wyjściowej, największa w
 \end{equation}
 \subsubsection{Funkcja straty}\label{subsubsec:funkcja_straty}
 Funkcja straty jest funkcją, która określa jak bardzo wynik klasyfikacji różni się od oczekiwanego.
-Ze względu na to, że wyjście sieci neuronowe nie jest jako wektor one-hot
+Ze względu na to, że wyjście sieci neuronowej nie jest przedstawiona jako wektor one-hot
 (wektor, w którym tylko jedna wartość jest równa 1, a reszta 0),
 wykorzystano funkcję entropii krzyżowej kategorycznej (ang. \textit{sparse categorical cross-entropy}).
 \begin{equation}
-    f(y, \hat{y}) = -\sum_{i=1}^{n} y_i \log(\hat{y_i})
+    f(y, \hat{y}) = -\sum_{i=1}^{n} y_i \log(\hat{y_i}),
 \end{equation}
-Gdzie $y$ to wektor oczekiwanych wyjść, a $\hat{y}$ to wektor wyjść sieci neuronowej.
+gdzie $y$ to wektor oczekiwanych wyjść, a $\hat{y}$ to wektor wyjść sieci neuronowej.
 \subsubsection{Uczenie sieci}\label{subsubsec:uczenie_sieci}
 Uczenie sieci neuronowej polega na aktualizacji wag połączeń między neuronami.
 Najważniejszymi parametrami podczas trenowania sieci neuronowej są:
 \begin{itemize}
-    \item współczynnik uczenia (ang. \textit{learning rate}). Określa jak bardzo aktualizowane są wagi po każdej iteracji.
-    \item funkcja optymalizująca (ang. \textit{optimizer}). Określa jak aktualizowane są wagi po każdej iteracji.
-    \item funkcja straty (ang. \textit{loss function}). Określa jak bardzo wynik klasyfikacji różni się od oczekiwanego.
-    \item liczba epok (ang. \textit{epochs}). Określa ile razy sieć neuronowa przejdzie przez cały zbiór danych.
+    \item współczynnik uczenia (ang. \textit{learning rate}) - określa jak bardzo aktualizowane są wagi po każdej iteracji.
+    \item funkcja optymalizująca (ang. \textit{optimizer}) - określa jak aktualizowane są wagi po każdej iteracji.
+    \item funkcja straty (ang. \textit{loss function}) - określa jak bardzo wynik klasyfikacji różni się od oczekiwanego.
+    \item liczba epok (ang. \textit{epochs}) - określa ile razy sieć neuronowa przejdzie przez cały zbiór danych.
 \end{itemize}
 W tym badaniu użyto następujących parametrów:
 \begin{itemize}
@@ -74,11 +74,11 @@ Czas trenowania sieci neuronowej zależy od wielu czynników, takich jak:
 \end{itemize}
 Jak wcześniej wspomniano, sieć jest relatywnie mała i prosta, dane niezbyt obszerne, ani złożone, a parametry trenowania nie są zbyt wymagające.
 W związku z tym, czas trenowania sieci neuronowej nie jest długi, nawet na słabszym sprzęcie.
-Do trenowania wykorzystano łatwo dostępny sprzęt, który nie jest dedykowany do uczenia maszynowego: procesor AMD Ryzen 5 5600 6-core 3.7GHz wraz z 32GB RAM.
-Czas trenowania sieci neuronowej wyniósł około 15 sekund dla danych niezbalansowanych, 17 dla over sampled oraz około 13 dla under sampled.
+Do trenowania wykorzystano łatwo dostępny sprzęt, który nie jest dedykowany do uczenia maszynowego: procesor AMD Ryzen 5 5600 6-core 3.7 GHz wraz z 32 GB RAM.
+Czas trenowania sieci neuronowej wyniósł około 15 sekund dla danych niezbalansowanych, 17 dla oversampled oraz około 13 dla undersampled.
 \subsubsection{Dokładność i strata podczas treningu}\label{subsubsec:dokladnosc_i_strata_podczas_treningu}
-Dokładność i strata podczas treningu są miarami określającymi jak dobrze sieć neuronowa radzi sobie z klasyfikacją na zbiorze walidacyjnym po każdej iteracji trenowania.
-W idealnym świecie dokładność powinna rosnąć do 100\% dokładności, a strata maleć do 0. Jednak w rzeczywistości nie jest to możliwe, bądź nie jest to opłacalne.
+Dokładność i strata podczas treningu są miarami określającymi, jak dobrze sieć neuronowa radzi sobie z klasyfikacją na zbiorze walidacyjnym po każdej iteracji trenowania.
+W idealnym świecie dokładność osiąga 100\%, a strata jest bliska 0. Jednak w rzeczywistości nie jest to możliwe, bądź nie jest to opłacalne.
 Ryzykujemy bowiem przeuczeniem sieci neuronowej, co oznacza, że sieć będzie zbyt dobrze radzić sobie z danymi treningowymi, ale nie będzie w stanie dobrze klasyfikować nowych danych.
 W trenowaniu sieci neuronowej zależy nam na generalizowaniu, czyli na tym, żeby sieć dobrze radziła sobie z różnymi danymi, a nie tylko tymi, na których była trenowana.
 \begin{figure}[H]
@@ -91,13 +91,13 @@ W trenowaniu sieci neuronowej zależy nam na generalizowaniu, czyli na tym, żeb
     \begin{subfigure}{.33\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/over_acc_loss.png}
-        \caption{Over sampling.}
+        \caption{Oversampling.}
         \label{fig:loss}
     \end{subfigure}
     \begin{subfigure}{.33\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/under_acc_loss.png}
-        \caption{Under sampling.}
+        \caption{Undersampling.}
         \label{fig:accu_loss_under}
     \end{subfigure}
     \caption{Dokładność i strata podczas treningu względem liczby epok.}
@@ -112,15 +112,14 @@ Klasyfikacji dokonuje się poprzez znalezienie k najbliższych sąsiadów i wybr
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{img/knn.png}
-    \caption{Poglądowy schemat algorytmu k najbliższych sąsiadów.}
-    \cite{knn-GeeksforGeeks_2023} 
+    \caption{Poglądowy schemat algorytmu k najbliższych sąsiadów \cite{knn-GeeksforGeeks_2023}.}
     \label{fig:knn}
 \end{figure}
 \subsubsection{Parametry}\label{subsubsec:parametry}
 Parametrami algorytmu k najbliższych sąsiadów są:
 \begin{itemize}
-    \item liczba sąsiadów (ang. \textit{n\_neighbors}). Określa ile najbliższych sąsiadów zostanie wybranych.
-    \item metryka (ang. \textit{metric}). Określa jak będzie liczona odległość między danymi.
+    \item liczba sąsiadów (ang. \textit{n\_neighbors}) - określa ile najbliższych sąsiadów zostanie wybranych.
+    \item metryka (ang. \textit{metric}) - określa jak będzie liczona odległość między danymi.
 \end{itemize}
 W tym badaniu użyto następujących parametrów:
 \begin{itemize}
@@ -128,6 +127,6 @@ W tym badaniu użyto następujących parametrów:
     \item metryka - euklidesowa
 \end{itemize}
 \subsubsection{Czas trenowania, dokładność i strata}\label{subsubsec:czas_trenowania_knn}
-Tak jak wcześniej wspomniano, algorytm k najbliższych sąsiadów tylko przechowuje w pamięci dane treningowe, a co za tym idzie, nie wymaga trenowania - czas jest równy 0 
+Tak, jak wcześniej wspomniano, algorytm k najbliższych sąsiadów tylko przechowuje w pamięci dane treningowe, a co za tym idzie, nie wymaga trenowania - czas jest równy 0 
 (pomijając elementy czysto sprzętowo-techniczne jak odczytanie i załadowanie danych do pamięci).
 Z tego też powodu dokładność i strata nie są miarami, które można określić dla algorytmu k najbliższych sąsiadów.
